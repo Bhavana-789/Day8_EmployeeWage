@@ -7,32 +7,36 @@ namespace EmployeeWageProblem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Problem.\n");
-            //UC3
-            Console.WriteLine("Welcome to UC3");
-            int totalWorkingHour = 8;
-            int partTimeHour = 4;
+            //UC4
+            Console.WriteLine("Welcome to UC4");
+            int isPartTime = 1;
+            int isFullTime = 2;
             int wagePerHour = 20;
+            int empHrs;
             int dailywage = 0;
             Random random = new Random();
             int EmpWorkingTime = random.Next(0, 3);
-            if (EmpWorkingTime == 0)
+
+            switch (EmpWorkingTime)
             {
-                Console.WriteLine("Employee is present for full time");
-                dailywage = totalWorkingHour * wagePerHour;
-                Console.WriteLine("Total Daily wage is:" + dailywage);
+                case 1:
+                    empHrs = 8;
+                    Console.WriteLine("Employee is present for full time");
+                    break;
+                case 2:
+                    empHrs = 4;
+                    Console.WriteLine("Employee is present for part time");
+                    break;
+                default:
+                    empHrs = 0;
+                    Console.WriteLine("Employee is absent");
+                    break;
             }
-            else if (EmpWorkingTime == 1)
-            {
-                Console.WriteLine("Employee is present for part time");
-                dailywage = partTimeHour * wagePerHour;
-                Console.WriteLine("Total Daily Wage is:" + dailywage);
-            }
-            else
-            {
-                Console.WriteLine("Employee is absent");
-                Console.WriteLine("Total Daily Wage is:" + dailywage);
-            }
+            dailywage = empHrs * wagePerHour;
+            Console.WriteLine("Total daily wage of employee is:");
         }
     }
 }
+    
+
 
