@@ -7,20 +7,20 @@ namespace EmployeeWageProblem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Problem.\n");
-            //UC5_MonthlyWage
-            Console.WriteLine("Welcome to UC5");
+            //UC6_WagesTillCondition
+            Console.WriteLine("Welcome to UC6");
             int isPartTime = 1;
             int isFullTime = 2;
+            int totalWorkingHrs = 0;
             int wagePerHour = 20;
-            int empHrs;
-            int dailywage = 0;
-            int totalWorkingHour = 0;
-            int numOfWorkingDays = 20;
-            while (numOfWorkingDays > 0)
+            int totalWage = 0;
+            int totalWorkingDays = 1, empHrs;
+            int totalWorkingLimit = 100;
+
+            while (totalWorkingDays <= 20 && totalWorkingHrs <= totalWorkingLimit)
             {
                 Random random = new Random();
                 int randomCheck = random.Next(0, 3);
-
                 switch (randomCheck)
                 {
                     case 1:
@@ -36,11 +36,11 @@ namespace EmployeeWageProblem
                         Console.WriteLine("Employee is absent");
                         break;
                 }
-                numOfWorkingDays--;
-                totalWorkingHour = totalWorkingHour + empHrs;
+                totalWorkingDays++;
+                totalWorkingHrs = totalWorkingHrs + empHrs;
             }
-            dailywage = totalWorkingHour * wagePerHour;
-            Console.WriteLine("Total wage is:" + dailywage);
+            totalWage = wagePerHour * totalWorkingHrs;
+            Console.WriteLine("Total wage is:" + totalWage);
         }
     }
 }
