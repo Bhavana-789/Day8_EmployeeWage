@@ -7,9 +7,10 @@ namespace EmployeeWageProblem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Problem.\n");
-            //UC7_UsingClassMethods
-            Console.WriteLine("Welcome to UC7");
-            UC_7.CalculateEmpWage();
+            //UC8_MultipleCompanyEmpWage
+            Console.WriteLine("Welcome to UC");
+            UC8_MultipleCompanies.CalculateEmpWage("Samsung", 20, 5, 30);
+            UC8_MultipleCompanies.CalculateEmpWage("Jio", 10, 4, 20);
         }
     }
 }

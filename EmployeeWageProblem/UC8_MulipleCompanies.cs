@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageProblem
 {
-    internal class UC_7
+    internal class UC8_MultipleCompanies
     {
         const int IsAbsent = 0;
         const int IsFullTime = 1;
         const int IsPartTime = 2;
-        const int WagePerHr = 20;
         const int FullTimeHr = 8;
         const int PartTimeHr = 4;
-        const int MaxWorkDays = 20;
-        const int MaxEmpHrs = 100;
 
-        public static void CalculateEmpWage()
+        public static void CalculateEmpWage(string company, int empRatePerHr, int numOfWorkDays, int maxHrsPerMonth)
         {
             int empHrs = 0, totalEmpHrs = 0, totalWorkDays = 0;
-            while (totalWorkDays < MaxWorkDays && totalEmpHrs < MaxEmpHrs)
+            while (totalWorkDays < numOfWorkDays && totalEmpHrs < maxHrsPerMonth)
             {
                 totalWorkDays++;
                 Random random = new Random();
-                int randomCheck = random.Next(3);
+                int randomCheck = random.Next(0, 3);
                 switch (randomCheck)
                 {
                     case IsFullTime:
@@ -39,12 +36,11 @@ namespace EmployeeWageProblem
                 }
                 totalEmpHrs += empHrs;
                 totalWorkDays++;
+                Console.WriteLine("Day#:" + totalWorkDays + " Emp Hrs: " + empHrs);
             }
-            int empWage = totalEmpHrs * WagePerHr;
+            int empWage = totalEmpHrs * empRatePerHr;
 
-            Console.WriteLine("Total working Day is: " + totalWorkDays);
-            Console.WriteLine("Total Working Hours is: " + totalEmpHrs + "\n");
-            Console.WriteLine("And the Employee Wage for the month is: " + empWage + "\n");
+            Console.WriteLine($"Total Employee Wage for company {company} is: " + empWage + "\n");
         }
     }
 }
